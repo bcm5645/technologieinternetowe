@@ -1,6 +1,6 @@
 let StanKonta = 1459;
 
-var ZarejestrowaneParagony = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677" ]; 
+var ZarejestrowaneParagony = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677", "ABC09876543210987" ]; 
 
 class Nagroda {
     constructor(Nazwa,Cena){
