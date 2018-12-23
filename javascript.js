@@ -31,10 +31,60 @@ class Nagroda {
 
   const Nagrody = [ Nagroda1, Nagroda2, Nagroda3, Nagroda4, Nagroda5, Nagroda6, Nagroda7, Nagroda8, Nagroda9, Nagroda10 ];
 
+  class Użytkownik {
+    constructor(Nazwa,Hasło){
+        this.nazwa = Nazwa;
+        this.hasło = Hasło;
+    }
+    get PokażNazwę()
+    {
+        return this.nazwa;
+    }
+
+    get PokażHasło()
+    {
+        return this.hasło;
+    }
+}
+
+var ZalogowanyUżytkownik;
+let Użytkownicy = [];
+
+Użytkownicy.push(new Użytkownik("Wiktor", "mar"));
+Użytkownicy.push(new Użytkownik("Józek", "gil"));
+Użytkownicy.push(new Użytkownik("Paweł", "fir"));
+Użytkownicy.push(new Użytkownik("Marcin", "kru"));
+Użytkownicy.push(new Użytkownik("Adrian", "les"));
+
+function login()
+{
+    const user = document.getElementById("inputusername").value;
+    const pass = document.getElementById("inputpassword").value;
+
+    Użytkownicy.forEach(element => {
+        if(user == element.PokażNazwę)
+        {
+            if(pass == element.PokażHasło)
+            {
+                ZalogowanyUżytkownik = element;
+            }
+        }
+    });
+
+    if(ZalogowanyUżytkownik != undefined)
+    {
+            window.alert("Zalogowany");
+            //document.location.replace("program.html");
+            window.location.href = "program1.html";
+//            window.location.href = "program.html";
+    }
+    else
+        window.alert("Błąd logowania");
+}
 
 function start() 
 {
-    if(Login())
+    if(ZalogowanyUżytkownik != undefined)
         ShowAcount();
 }
 
@@ -128,15 +178,16 @@ function ValidateReceipt(receiptnumber)
 {
     var validated = true;
 
-    if (receiptnumber.startsWith("ABC") && receiptnumber.length == 17)
+    if(receiptnumber.startsWith("ABC") && receiptnumber.length == 17)
     {
         ZarejestrowaneParagony.forEach(element => {
             if(element == receiptnumber)
             {
                 validated = false;
             }
+        });
     }
-    else    
+    else 
         window.alert("Niepoprawny numer paragonu");
 
     return validated;

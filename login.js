@@ -41,7 +41,7 @@ function login()
     if(ZalogowanyUżytkownik != undefined)
     {
             window.alert("Zalogowany");
-            //document.location.replace("program.html");
+            document.location.replace("program.html");
             window.location.href = "program.html";
     }
     else
