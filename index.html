@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">  
-    <script src="javascript.js"></script>
+    <script src="login.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <body onload ="start()"></script>
 </head>
 
 <body>
-    <div id = "Stan konta"></div>
     <form>
-        <input type="button" value="button" onclick="ShowMessage()">
-        <input id="tekst" type="text" value="To jest input typu text">
-        <input type="checkbox" value="checkbox">
-        <input type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
-        <input type="button" value="Dodaj paragon" onclick="InputReceipt()">
+        Użytkownik: <input id="inputusername" type="text">
+        Hasło: <input id="inputpassword" type="password">
+        <input type="submit" value="Zaloguj się" onclick="login()">
     </form>    
-    <div id="NagrodyOpisy" ></div>
-    <div id ="NagrodyPrzyciski"></div>
-    <div id = "Zamówienie"></div>
 
-    <div id = "DodajParagon"></div>
-
-
-    <div id = "Nowy"></div>
-    
 </body>

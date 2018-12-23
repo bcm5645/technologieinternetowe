@@ -1,8 +1,3 @@
-#pierwszy
-{
-    height: 70px;
-}
-
 #NagrodyOpisy
 {
     float:left;
@@ -15,9 +10,53 @@
     text-align: right;
 }
 
-input
+input[type=button]
 {
-    height:25px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    
+    border-radius: 15px;
+    margin-top:5px;
+}
+
+input[type=button]:hover
+{
+    box-shadow: 0 0 5px rgb(69, 224, 82);
+    /*padding: 3px 0px 3px 3px;*/
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+input[type=text]:focus
+{
+    box-shadow: 0 0 5px rgb(69, 224, 82);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.czerwony
+{ 
+    /*border:1px solid #c44;*/
+    background-color: red;
+    color:white;
+    height:30px;
+    width: 150px;
+}
+
+form
+{
+    height: 40px;
+}
+
+.zielony
+{
+    background-color: darkgreen;
+    color:white;    
+    height:30px;
+    width: 150px;
 }
 
 #Zamówienie, #Stan konta

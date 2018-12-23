@@ -34,7 +34,15 @@ class Nagroda {
 
 function start() 
 {
-    ShowAcount();
+    if(Login())
+        ShowAcount();
+}
+
+function Login()
+{
+
+    document.write("");
+    return false;
 }
 
 function ShowPrizes()
@@ -45,13 +53,18 @@ function ShowPrizes()
     for(let i = 0; i < Nagrody.length; i++)
     {
         Message += "Nagroda " + (i+1) + ": " + Nagrody[i].PokażNazwę + " kosztuje " + Nagrody[i].PokażCenę + " punktów <br>"
-        Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
+        if(StanKonta > Nagrody[i].PokażCenę)
+            Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
+        else
+            Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
+
     } 
     
     document.getElementById("NagrodyOpisy").innerHTML = Message;
     document.getElementById("NagrodyPrzyciski").innerHTML = Buttons;
-      
 }
+
+
 
 function OrderPrize(prizenumber)
 {
@@ -67,7 +80,7 @@ function OrderPrize(prizenumber)
 
     document.getElementById("Zamówienie").innerHTML = Message;
     ShowAcount();
-
+    ShowPrizes(); // żeby zaktualizować dostępność nagród
 }
 
 function ShowAcount()
@@ -86,26 +99,20 @@ function InputReceipt()
 
 function AddReceipt()
 {
-    const ReceiptNumber = document.getElementById("receiptnumber").value;
-    const ReceiptTotalSum = parseInt(document.getElementById("receipttotalamount").value);
+    const ReceiptNumberControl = document.getElementById("receiptnumber");
+    const ReceiptTotalSumControl = document.getElementById("receipttotalamount");
+    
+    const ReceiptTotalSum=parseInt(ReceiptTotalSumControl.value);
+    const ProperReceipt = ValidateReceipt(ReceiptNumberControl.value);
 
-    var validated = true;
-
-    if (ReceiptNumber.startsWith("ABC") && ReceiptNumber.length == 17)
-    {
-        ZarejestrowaneParagony.forEach(element => {
-            if(element == ReceiptNumber)
-            {
-                validated = false;
-            }
-        });
-
-        if(validated == true)
+        if(ProperReceipt)
         {
             if(ReceiptTotalSum <= 10000 && ReceiptTotalSum > 0)
             {
                 StanKonta += ReceiptTotalSum;
-                ZarejestrowaneParagony.push(ReceiptNumber);
+                ZarejestrowaneParagony.push(ReceiptNumberControl.value);
+                ReceiptNumberControl.value = "";
+                ReceiptTotalSumControl.value = 0;
             }
             else
                 window.alert("Nieprawidłowa kwota")
@@ -113,17 +120,31 @@ function AddReceipt()
         else
             window.alert("Ten paragon jest już zarejestrowany");
 
-    }
-    else
-        window.alert("Niepoprawny numer paragonu");
 
     ShowAcount();
 }
 
+function ValidateReceipt(receiptnumber)
+{
+    var validated = true;
+
+    if (receiptnumber.startsWith("ABC") && receiptnumber.length == 17)
+    {
+        ZarejestrowaneParagony.forEach(element => {
+            if(element == receiptnumber)
+            {
+                validated = false;
+            }
+    }
+    else    
+        window.alert("Niepoprawny numer paragonu");
+
+    return validated;
+}
 
 function ClearSite()
 {
-    document.getElementById("NagrodyOpisy").innerHTML = ""
+    document.getElementById("NagrodyOpisy").innerHTML = "";
     document.getElementById("NagrodyPrzyciski").innerHTML = ""
     document.getElementById("Zamówienie").innerHTML = ""
 }
