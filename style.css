@@ -1,0 +1,27 @@
+#pierwszy
+{
+    height: 70px;
+}
+
+#NagrodyOpisy
+{
+    float:left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+
+#NagrodyPrzyciski
+{
+    text-align: right;
+}
+
+input
+{
+    height:25px;
+}
+
+#Zamówienie, #Stan konta
+{
+    clear: both;
+     
+}
