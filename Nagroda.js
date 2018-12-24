@@ -21,21 +21,21 @@ Nagrody.push(new Nagroda("Wino musujące 'Blady Julek'", 1300));
 function ShowPrizes()
 {
     let Message="";
-    let Buttons="";
+    let Button="";
 
     for(let i = 0; i < Nagrody.length; i++)
     {
-        //Message += "Nagroda " + (i+1) + ": " + Nagrody[i].PokażNazwę + " kosztuje " + Nagrody[i].PokażCenę + " punktów <br>"
-
         let IdName = "reward" + (i+1);
         document.getElementById(IdName).innerHTML = Nagrody[i].PokażNazwę + " = " + Nagrody[i].PokażCenę + " punktów <br>";
         if(ZalogowanyUżytkownik.PokażPunkty >= Nagrody[i].PokażCenę)
-            Buttons = "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
+            Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"0\"> <br>"
+            //Buttons = "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
         else
-            Buttons = "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
+            Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"Zamów\" disabled> <br>"
+        //Buttons = "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
 
         IdName = "price" + (i+1);
-        document.getElementById(IdName).innerHTML = Buttons;
+        document.getElementById(IdName).innerHTML = Button;
     } 
 }
 

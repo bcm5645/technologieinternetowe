@@ -36,12 +36,6 @@ function start()
     ShowAcount();
 }
 
-
-
-
-
-
-
 function ClearSite()
 {
     document.getElementById("NagrodyOpisy").innerHTML = "";
