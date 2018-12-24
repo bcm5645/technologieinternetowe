@@ -5,6 +5,8 @@ var ZalogowanyUżytkownik;
 
 var LoginDiv;
 
+var WartośćKoszyka = 0;
+
 function login()
 {
     const user = document.getElementById("inputusername").value;
