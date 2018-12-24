@@ -112,11 +112,6 @@ function OrderPrize(prizenumber)
     ShowPrizes(); // żeby zaktualizować dostępność nagród
 }
 
-function ShowAcount()
-{
-    document.getElementById("Stan konta").innerHTML = "Na Twoim koncie masz " + ZalogowanyUżytkownik.PokażPunkty + " punktów";
-}
-
 function InputReceipt()
 {
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";
