@@ -1,3 +1,3 @@
 function ShowAcount() {
-    document.getElementById("StanKonta").innerHTML = "Na Twoim koncie masz " + ZalogowanyUżytkownik.PokażPunkty + " punktów";
+    document.getElementById("Account").innerHTML = "Stan Twojego konta wynosi " + ZalogowanyUżytkownik.PokażPunkty + " punktów";
 }

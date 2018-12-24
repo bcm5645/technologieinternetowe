@@ -36,43 +36,11 @@ function start()
     ShowAcount();
 }
 
-function ShowPrizes()
-{
-    let Message="";
-    let Buttons="";
-
-    for(let i = 0; i < Nagrody.length; i++)
-    {
-        Message += "Nagroda " + (i+1) + ": " + Nagrody[i].PokażNazwę + " kosztuje " + Nagrody[i].PokażCenę + " punktów <br>"
-        if(ZalogowanyUżytkownik.PokażPunkty >= Nagrody[i].PokażCenę)
-            Buttons += "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
-        else
-            Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
-
-    } 
-    
-    document.getElementById("NagrodyOpisy").innerHTML = Message;
-    document.getElementById("NagrodyPrzyciski").innerHTML = Buttons;
-}
 
 
 
-function OrderPrize(prizenumber)
-{
-    const Cena = Nagrody[prizenumber].PokażCenę
-    let Message;
-    if(ZalogowanyUżytkownik.PokażPunkty >= Cena)
-    {
-        ZalogowanyUżytkownik.punkty -= Cena;
-        Message = "Zamawiasz " + Nagrody[prizenumber].PokażNazwę;
-    }
-    else
-        Message = "Masz za mało punktów żeby zamówić tę nagrodę";
 
-    document.getElementById("Zamówienie").innerHTML = Message;
-    ShowAcount();
-    ShowPrizes(); // żeby zaktualizować dostępność nagród
-}
+
 
 function ClearSite()
 {

@@ -1,4 +1,5 @@
-function InputReceipt() {
+
+function ShowReceiptInput() {
     document.getElementById("DodajParagon").style.display = "block";
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";
     const ReceiptTotalSum = "<input id = \"receipttotalamount\" type = \"number\" value=\"Wartość paragonu\">";
@@ -6,6 +7,7 @@ function InputReceipt() {
     ClearSite();
     document.getElementById("DodajParagon").innerHTML = ReceiptNumber + ReceiptTotalSum + Button;
 }
+
 function AddReceipt() {
     const AddReceiptControl = document.getElementById("DodajParagon");
     AddReceiptControl.style.display = "block";
