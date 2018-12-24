@@ -43,6 +43,8 @@ Użytkownicy.push(new Użytkownik("Paweł", "fir", 9981));
 Użytkownicy.push(new Użytkownik("Marcin", "kru", 9091));
 Użytkownicy.push(new Użytkownik("Adrian", "les", 7812));
 
+var LoginDiv;
+
 function login()
 {
     const user = document.getElementById("inputusername").value;
@@ -61,8 +63,7 @@ function login()
     if(ZalogowanyUżytkownik != undefined)
     {
         ShowAcount();
-        //window.alert("Zalogowano użytkownika " + ZalogowanyUżytkownik.PokażNazwę);
-            // window.location = "main.html";
+        LoginDiv.style.display = "none";
     }
     else
         window.alert("Błąd logowania");
@@ -71,6 +72,7 @@ function login()
 function start() 
 {
     //if(ZalogowanyUżytkownik != undefined)
+    LoginDiv = document.getElementById("login")
         ShowAcount();
 }
 
@@ -82,8 +84,8 @@ function ShowPrizes()
     for(let i = 0; i < Nagrody.length; i++)
     {
         Message += "Nagroda " + (i+1) + ": " + Nagrody[i].PokażNazwę + " kosztuje " + Nagrody[i].PokażCenę + " punktów <br>"
-        if(ZalogowanyUżytkownik.PokażPunkty > Nagrody[i].PokażCenę)
-            Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
+        if(ZalogowanyUżytkownik.PokażPunkty >= Nagrody[i].PokażCenę)
+            Buttons += "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
         else
             Buttons += "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
 
@@ -112,8 +114,19 @@ function OrderPrize(prizenumber)
     ShowPrizes(); // żeby zaktualizować dostępność nagród
 }
 
+<<<<<<< HEAD
 function InputReceipt()
+=======
+function ShowAcount()
 {
+    document.getElementById("StanKonta").style.display = "block";
+    document.getElementById("StanKonta").innerHTML = "Masz " + ZalogowanyUżytkownik.PokażPunkty + " punktów";
+}
+
+function ShowReceiptInput()
+>>>>>>> sss
+{
+    document.getElementById("DodajParagon").style.display = "block";
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";
     const ReceiptTotalSum = "<input id = \"receipttotalamount\" type = \"number\" value=\"Wartość paragonu\">";
     const Button = "<input id = \"ApplyButton\" type=\"button\" value=\"Dodaj\" onclick=\"AddReceipt()\">";   
@@ -132,7 +145,7 @@ function AddReceipt()
     const ReceiptTotalSum=parseInt(ReceiptTotalSumControl.value);
     const ProperReceipt = ValidateReceipt(ReceiptNumberControl.value);
 
-        if(ProperReceipt)
+        if(ProperReceipt == true)
         {
             if(ReceiptTotalSum <= 10000 && ReceiptTotalSum > 0)
             {
@@ -145,28 +158,29 @@ function AddReceipt()
             else
                 window.alert("Nieprawidłowa kwota")
         }
-        else
-            window.alert("Ten paragon jest już zarejestrowany");
-
 
     ShowAcount();
 }
 
 function ValidateReceipt(receiptnumber)
 {
-    var validated = true;
+    var validated = false;
 
     if(receiptnumber.startsWith("ABC") && receiptnumber.length == 17)
     {
+        validated = true;
         ZarejestrowaneParagony.forEach(element => {
             if(element == receiptnumber)
             {
                 validated = false;
+                window.alert("Ten paragon był już rejestrowany")
             }
         });
     }
-    else 
+    else
+    {
         window.alert("Niepoprawny numer paragonu");
+    }
 
     return validated;
 }

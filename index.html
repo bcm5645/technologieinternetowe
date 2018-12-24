@@ -6,18 +6,22 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body onload="start()">
+    <div id="header"></header>
 <p id = p1> 
-    <form id=login>
-        Użytkownik: <input id="inputusername" type="text" required>
-        Hasło: <input id="inputpassword" type="password" required>
-        <input type="button" value="Zaloguj się" onclick="login()">
-    </form>
+    
+    <div id=login>
+        <form>
+            Użytkownik: <input id="inputusername" type="text" required>
+            Hasło: <input id="inputpassword" type="password" required>
+            <input type="button" value="Zaloguj się" onclick="login()">
+        </form>
+    </div>
 
-    <div id = "Stan konta"></div>
+    <div id = "StanKonta"></div>
     <form>
         <input class="czerwony" type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
-        <input class="zielony" type="button" value="Dodaj paragon" onclick="InputReceipt()">
+        <input class="zielony" type="button" value="Dodaj paragon" onclick="ShowReceiptInput()">
     </form>
     <div id="NagrodyOpisy" ></div>
     <div id ="NagrodyPrzyciski"></div>
