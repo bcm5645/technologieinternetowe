@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">  
     <script src="Nagroda.js"></script>
-    <script src="ShowAcount.js"></script>
+    <script src="ShowAccount.js"></script>
     <script src="Użytkownicy.js"></script>
     <script src="javascript.js"></script>
 
@@ -11,6 +11,12 @@
 
 <body onload="start()">
     <div id="header"></header>
+
+<nav>
+    <input class="czerwony" type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
+    <input class="zielony" type="button" value="Dodaj paragon" onclick="ShowReceiptInput()">
+</nav>
+
 <p id = p1> 
     
     <div id=login>
@@ -22,10 +28,7 @@
     </div>
 
     <div id = "StanKonta"></div>
-    <form>
-        <input class="czerwony" type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
-        <input class="zielony" type="button" value="Dodaj paragon" onclick="ShowReceiptInput()">
-    </form>
+
     <div id="NagrodyOpisy" ></div>
     <div id ="NagrodyPrzyciski"></div>
     <div id = "Zamówienie"></div>
