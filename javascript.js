@@ -9,6 +9,7 @@ var WartośćKoszyka = 0;
 
 function login()
 {
+    ZalogowanyUżytkownik = null;
     const user = document.getElementById("inputusername").value;
     const pass = document.getElementById("inputpassword").value;
 

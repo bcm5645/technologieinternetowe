@@ -26,12 +26,16 @@ function ShowPrizes()
     for(let i = 0; i < Nagrody.length; i++)
     {
         let IdName = "reward" + (i+1);
-        document.getElementById(IdName).innerHTML = Nagrody[i].PokażNazwę + " = " + Nagrody[i].PokażCenę + " punktów <br>";
-        if(ZalogowanyUżytkownik.PokażPunkty >= Nagrody[i].PokażCenę)
-            Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"0\"> <br>"
+        document.getElementById(IdName).innerHTML = Nagrody[i].PokażNazwę + " = " + Nagrody[i].PokażCenę + " punktów";
+
+        Button = "<input id=\"inputprice" + (i+1) + "\" type=\"number\" min = \"0\" max = \"100\" value=\"0\" onchange=\"PrzeliczKoszyk()\" ";
+        
+        if(ZalogowanyUżytkownik.punkty < Nagrody[i].PokażCenę)
+            Button += " disabled"
+
+        Button += "> <br>"
             //Buttons = "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
-        else
-            Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"Zamów\" disabled> <br>"
+            //Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"Zamów\" disabled> <br>"
         //Buttons = "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
 
         IdName = "price" + (i+1);

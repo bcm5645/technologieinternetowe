@@ -95,10 +95,10 @@ nav
 }
 
 .wrapper > div {
-  border: 2px solid rgb(233,171,88);
+  /*border: 2px solid rgb(233,171,88);*/
   border-radius: 8px;
   /*background-color: rgba(233,171,88,.5);*/
-  padding: 1em;
+  padding: 4px;
   color: #d9480f;
 }.wrapper {
   display: grid;
@@ -119,10 +119,21 @@ nav
 #Login{
   grid-column: 3 / 5;
   grid-row: 1/2; 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16px;
 }
+#Login input
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    width: 120px;
+}
+
 #Menu { 
   grid-column: 1;
   grid-row: 2 / 20;
+  margin-left: auto;
+  margin-right: auto;
 }
 #Account {
   grid-column: 2/5;
@@ -132,12 +143,12 @@ nav
   font-weight: 900;
 }
 .Rewards {
-  grid-column: 2;
+  grid-column: 2/4;
 }
 .Price {
-  grid-column: 3;
+  grid-column: 4;
 }
 #Cart {
   grid-column: 4;
-  grid-row: 3 / 10;
+  /*grid-row: 3 / 10;*/
 }

@@ -1,11 +1,14 @@
 
-function ShowReceiptInput() {
-    document.getElementById("DodajParagon").style.display = "block";
+function ShowReceiptInput() 
+{
+    const receiptcontrol = document.getElementById("reward1");
+
+    receiptcontrol.style.display = "block";
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";
     const ReceiptTotalSum = "<input id = \"receipttotalamount\" type = \"number\" value=\"Wartość paragonu\">";
     const Button = "<input id = \"ApplyButton\" type=\"button\" value=\"Dodaj\" onclick=\"AddReceipt()\">";
     ClearSite();
-    document.getElementById("DodajParagon").innerHTML = ReceiptNumber + ReceiptTotalSum + Button;
+    receiptcontrol.innerHTML = ReceiptNumber + ReceiptTotalSum + Button;
 }
 
 function AddReceipt() {
