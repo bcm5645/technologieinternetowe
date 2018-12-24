@@ -1,6 +1,7 @@
 //let StanKonta = 1459;
 
 var ZarejestrowaneParagony = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677", "ABC09876543210987" ]; 
+var ZalogowanyUżytkownik;
 
 var LoginDiv;
 
@@ -32,7 +33,7 @@ function start()
 {
     //if(ZalogowanyUżytkownik != undefined)
     LoginDiv = document.getElementById("login")
-        ShowAcount();
+    ShowAcount();
 }
 
 function ShowPrizes()
@@ -73,17 +74,7 @@ function OrderPrize(prizenumber)
     ShowPrizes(); // żeby zaktualizować dostępność nagród
 }
 
-<<<<<<< HEAD
 function InputReceipt()
-=======
-function ShowAcount()
-{
-    document.getElementById("StanKonta").style.display = "block";
-    document.getElementById("StanKonta").innerHTML = "Masz " + ZalogowanyUżytkownik.PokażPunkty + " punktów";
-}
-
-function ShowReceiptInput()
->>>>>>> sss
 {
     document.getElementById("DodajParagon").style.display = "block";
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";

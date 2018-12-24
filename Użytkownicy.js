@@ -9,7 +9,7 @@ class Użytkownik {
     get PokażPunkty() { return this.punkty; }
 }
 
-var ZalogowanyUżytkownik;
+
 var Użytkownicy = [];
 
 Użytkownicy.push(new Użytkownik("Wiktor", "mar", 14586));
