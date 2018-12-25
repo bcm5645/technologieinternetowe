@@ -36,7 +36,7 @@ function start()
 {
     //if(ZalogowanyUżytkownik != undefined)
     
-    SliderChangeImage();
+    //SliderChangeImage();
     LoginDiv = document.getElementById("login")
     ShowAcount();
 }
