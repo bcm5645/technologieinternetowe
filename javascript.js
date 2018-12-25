@@ -35,6 +35,8 @@ function login()
 function start() 
 {
     //if(ZalogowanyUżytkownik != undefined)
+    
+    SliderChangeImage();
     LoginDiv = document.getElementById("login")
     ShowAcount();
 }
