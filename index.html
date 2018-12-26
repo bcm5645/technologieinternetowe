@@ -13,28 +13,6 @@
 </head>
 
 <body onload="start()">
-    <div id="header"></header>
-
-
-        <img src="slider/slajd1.png" />
-
-
-<nav>
-
-</nav>
-
-<p id = p1> 
-    
-    <div id=login>
-
-    </div>
-
-    <div id="NagrodyOpisy" ></div>
-    <div id ="NagrodyPrzyciski"></div>
-    <div id = "Zamówienie"></div>
-
-    <div id = "DodajParagon"></div>
-</p>
 
 <div class="wrapper">
         <div id="Title">
@@ -52,14 +30,46 @@
         
         <div id="Menu">
             Menu<br>    
-            <input class="czerwony" type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
-            <input class="zielony" type="button" value="Dodaj paragon" onclick="ShowReceiptInput()">
+            <form>
+                <input class="czerwony" type="button" value="Pokaż nagrody" onclick="ShowPrizes()">
+                <input class="zielony" type="button" value="Dodaj paragon" onclick="ShowReceiptInput()">
+            </form> 
         </div>
         
-        <div id="Account"></div>
-        <div id="Slider">
-            <img src="slider/slajdprzezrozczystosc.png" alt="slajder">
+        <div id="Account">
+
         </div>
+
+        <div id="LogOut">
+            Wyloguj się<input type="submit" onclick="logout()">
+        </div>
+
+        <div id="Slider">
+            <!--
+            <img class="SliderImages" src="slider/slajd1.jpg">
+            <img class="SliderImages" src="slider/slajd2.jpg">
+            <img class="SliderImages" src="slider/slajd3.jpg">
+            <img class="SliderImages" src="slider/slajd4.jpg">
+            <img class="SliderImages" src="slider/slajd5.jpg">
+            <img class="SliderImages" src="slider/slajd6.jpg">
+            <img class="SliderImages" src="slider/slajd7.jpg">
+            <img class="SliderImages" src="slider/slajd8.jpg">
+            <img class="SliderImages" src="slider/slajd9.jpg">
+            <img class="SliderImages" src="slider/slajd10.jpg">
+            -->
+
+            <img class="SliderImages" src="slider/minislajd1.jpg">
+            <img class="SliderImages" src="slider/minislajd2.jpg">
+            <img class="SliderImages" src="slider/minislajd3.jpg">
+            <img class="SliderImages" src="slider/minislajd4.jpg">
+            <img class="SliderImages" src="slider/minislajd5.jpg">
+            <img class="SliderImages" src="slider/minislajd6.jpg">
+            <img class="SliderImages" src="slider/minislajd7.jpg">
+            <img class="SliderImages" src="slider/minislajd8.jpg">
+            <img class="SliderImages" src="slider/minislajd9.jpg">
+            <img class="SliderImages" src="slider/minislajd10.jpg">
+        </div>
+        
         <div class="Rewards" id="reward1"></div> <div class="Price" id="price1"></div>  
         <div class="Rewards" id="reward2"></div> <div class="Price" id="price2"></div>  
         <div class="Rewards" id="reward3"></div> <div class="Price" id="price3"></div>  
@@ -72,15 +82,12 @@
         <div class="Rewards" id="reward10"></div> <div class="Price" id="price10"></div>  
         
         
-        <div id="Cart">
+        <div id="Cart">  
             Koszyk
             <div id="CartContent">
                 
             </div>
         </div>
-<!--     <div class="six">Sześć</div>
--->
-
 </div>
 
    

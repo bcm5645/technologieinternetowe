@@ -3,7 +3,7 @@
 var ZarejestrowaneParagony = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677", "ABC09876543210987" ]; 
 var ZalogowanyUżytkownik;
 
-var LoginDiv;
+var LoginDiv, MenuDiv, AccountDiv, RewardsDiv, PricesDiv;
 
 var WartośćKoszyka = 0;
 
@@ -32,18 +32,41 @@ function login()
         window.alert("Błąd logowania");
 }
 
+function logout()
+{
+    ZalogowanyUżytkownik = null;
+    HideAll();
+}
+
 function start() 
 {
     //if(ZalogowanyUżytkownik != undefined)
     
-    //SliderChangeImage();
-    LoginDiv = document.getElementById("login")
+    SliderChangeImage();
+    //showDivs(1);
+    LoginDiv = document.getElementById("Login");
+    MenuDiv = document.getElementById("Menu");;
+    AccountDiv = document.getElementById("Account");
+    RewardsDiv = document.getElementsByClassName("Rewards");
+    PricesDiv = document.getElementsByClassName("Prices");
+
     ShowAcount();
 }
 
-function ClearSite()
+function HideAll()
 {
-    document.getElementById("NagrodyOpisy").innerHTML = "";
-    document.getElementById("NagrodyPrzyciski").innerHTML = ""
-    document.getElementById("Zamówienie").innerHTML = ""
+    HideAccountDiv();
+    HideRewardsDiv()
+    HideMenuDiv();
+    HideLogin();
+}
+
+function HideLogin() { LoginDiv.style.display = "none"; }
+function HideAccountDiv() { AccountDiv.style.display = "none"; }
+function HideMenuDiv() { MenuDiv.style.display = "none"; }
+
+function HideRewardsDiv() 
+{
+    RewardsDiv.forEach(element => { element.style.display = "none"; }); 
+    PricesDiv.forEach(element => { element.style.display = "none"; });         
 }
