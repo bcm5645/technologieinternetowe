@@ -1,56 +1,26 @@
 //let StanKonta = 1459;
 
-var ZarejestrowaneParagony = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677", "ABC09876543210987" ]; 
-var ZalogowanyUżytkownik;
-
-var LoginDiv, MenuDiv, AccountDiv, RewardsDiv, PricesDiv;
+var LoginDiv, MenuDiv, AccountDiv, RewardsDiv, PricesDiv, SliderDiv, LogoutDiv, CartDiv, ReceiptDiv;
 
 var WartośćKoszyka = 0;
 
-function login()
-{
-    ZalogowanyUżytkownik = null;
-    const user = document.getElementById("inputusername").value;
-    const pass = document.getElementById("inputpassword").value;
-
-    Użytkownicy.forEach(element => {
-        if(user == element.PokażNazwę)
-        {
-            if(pass == element.PokażHasło)
-            {
-                ZalogowanyUżytkownik = element;
-            }
-        }
-    });
-
-    if(ZalogowanyUżytkownik != undefined)
-    {
-        ShowAcount();
-        LoginDiv.style.display = "none";
-    }
-    else
-        window.alert("Błąd logowania");
-}
-
-function logout()
-{
-    ZalogowanyUżytkownik = null;
-    HideAll();
-}
-
 function start() 
 {
-    //if(ZalogowanyUżytkownik != undefined)
-    
     SliderChangeImage();
-    //showDivs(1);
+
     LoginDiv = document.getElementById("Login");
-    MenuDiv = document.getElementById("Menu");;
+    MenuDiv = document.getElementById("Menu");
     AccountDiv = document.getElementById("Account");
     RewardsDiv = document.getElementsByClassName("Rewards");
     PricesDiv = document.getElementsByClassName("Prices");
+    SliderDiv = document.getElementById("Slider");
+    LogoutDiv = document.getElementById("Logout");
+    CartDiv = document.getElementById("Cart");
+    ReceiptDiv = document.getElementById("reward1");
 
-    ShowAcount();
+    ShowAccount();
+    HideAll();
+    ShowLoginDiv();
 }
 
 function HideAll()
@@ -58,15 +28,46 @@ function HideAll()
     HideAccountDiv();
     HideRewardsDiv()
     HideMenuDiv();
-    HideLogin();
+    HideLoginDiv();
+    HideSliderDiv();
+    HideLogoutDiv();
+    HideCartDiv();
 }
 
-function HideLogin() { LoginDiv.style.display = "none"; }
+function HideLoginDiv() { LoginDiv.style.display = "none"; }
 function HideAccountDiv() { AccountDiv.style.display = "none"; }
 function HideMenuDiv() { MenuDiv.style.display = "none"; }
+function HideSliderDiv() { SliderDiv.style.display = "none"; }
+function HideLogoutDiv() { LogoutDiv.style.display = "none"; }
+function HideCartDiv() { CartDiv.style.display = "none"; }
 
 function HideRewardsDiv() 
 {
-    RewardsDiv.forEach(element => { element.style.display = "none"; }); 
-    PricesDiv.forEach(element => { element.style.display = "none"; });         
+    for(let i = 0; i < RewardsDiv.length; i++) 
+    {
+        RewardsDiv[i].style.display = "none"; 
+    }
+    for(let i = 0; i < PricesDiv.length; i++)
+    {
+        PricesDiv[i].style.display = "none"; 
+    }
+}
+
+function ShowLoginDiv() { LoginDiv.style.display = "block"; }
+function ShowAccountDiv() { AccountDiv.style.display = "block"; }
+function ShowMenuDiv() { MenuDiv.style.display = "block"; }
+function ShowSliderDiv() { SliderDiv.style.display = "block"; }
+function ShowLogoutDiv() { LogoutDiv.style.display = "block"; }
+function ShowCartDiv() { CartDiv.style.display = "block"; }
+
+function ShowRewardsDiv()
+{
+    for(let i = 0; i < RewardsDiv.length; i++) 
+    {
+        RewardsDiv[i].style.display = "block"; 
+    }
+    for(let i = 0; i < PricesDiv.length; i++) 
+    {
+        PricesDiv[i].style.display = "block"; 
+    }
 }

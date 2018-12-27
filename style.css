@@ -16,6 +16,7 @@ input[type=button], input[type=text]
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
 }
 
 input[type=button]
@@ -172,7 +173,7 @@ nav
 .Rewards {
   grid-column: 2/4;
 }
-.Price {
+.Prices {
   grid-column: 4;
 }
 #Cart {

@@ -1,19 +1,17 @@
+let RegisteredReceipts = [ "ABC12345678901233", "ABC0987654321234", "ABC11223344556677", "ABC09876543210987" ]; 
 
 function ShowReceiptInput() 
 {
-    const receiptcontrol = document.getElementById("reward1");
-
-    receiptcontrol.style.display = "block";
+    ReceiptDiv.style.display = "block";
     const ReceiptNumber = "<input id = \"receiptnumber\" type = \"text\" value=\"Nr paragonu\">";
     const ReceiptTotalSum = "<input id = \"receipttotalamount\" type = \"number\" value=\"Wartość paragonu\">";
     const Button = "<input id = \"ApplyButton\" type=\"button\" value=\"Dodaj\" onclick=\"AddReceipt()\">";
-    ClearSite();
-    receiptcontrol.innerHTML = ReceiptNumber + ReceiptTotalSum + Button;
+    ReceiptDiv.innerHTML = ReceiptNumber + ReceiptTotalSum + Button;
 }
 
 function AddReceipt() {
-    const AddReceiptControl = document.getElementById("DodajParagon");
-    AddReceiptControl.style.display = "block";
+    ReceiptDiv.style.display = "block";
+
     const ReceiptNumberControl = document.getElementById("receiptnumber");
     const ReceiptTotalSumControl = document.getElementById("receipttotalamount");
     const ReceiptTotalSum = parseInt(ReceiptTotalSumControl.value);
@@ -21,21 +19,22 @@ function AddReceipt() {
     if (ProperReceipt == true) {
         if (ReceiptTotalSum <= 10000 && ReceiptTotalSum > 0) {
             ZalogowanyUżytkownik.punkty += ReceiptTotalSum;
-            ZarejestrowaneParagony.push(ReceiptNumberControl.value);
+            RegisteredReceipts.push(ReceiptNumberControl.value);
             ReceiptNumberControl.value = "";
             ReceiptTotalSumControl.value = 0;
-            AddReceiptControl.style.display = "none";
+            ReceiptDiv.style.display = "none";
         }
         else
             window.alert("Nieprawidłowa kwota");
     }
-    ShowAcount();
+    ShowAccount();
 }
+
 function ValidateReceipt(receiptnumber) {
     var validated = false;
     if (receiptnumber.startsWith("ABC") && receiptnumber.length == 17) {
         validated = true;
-        ZarejestrowaneParagony.forEach(element => {
+        RegisteredReceipts.forEach(element => {
             if (element == receiptnumber) {
                 validated = false;
                 window.alert("Ten paragon był już rejestrowany");

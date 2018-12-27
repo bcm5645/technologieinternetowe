@@ -20,8 +20,8 @@ Nagrody.push(new Nagroda("Wino musujące 'Blady Julek'", 1300));
 
 function ShowPrizes()
 {
-    let Message="";
-    let Button="";
+    let Message="", Button="";
+    ShowRewardsDiv();
 
     for(let i = 0; i < Nagrody.length; i++)
     {
@@ -36,7 +36,7 @@ function ShowPrizes()
         Button += "> <br>"
             //Buttons = "<input type=\"button\" class = \"orderbutton\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\"> <br>"
             //Button = "<input type=\"number\" min = \"0\" max = \"100\" value=\"Zamów\" disabled> <br>"
-        //Buttons = "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
+            //Buttons = "<input type=\"button\" value=\"Zamów " + Nagrody[i].PokażNazwę + "\" onclick=\"OrderPrize(" + i + ")\" disabled> <br>"
 
         IdName = "price" + (i+1);
         document.getElementById(IdName).innerHTML = Button;
@@ -56,6 +56,6 @@ function OrderPrize(prizenumber)
         Message = "Masz za mało punktów żeby zamówić tę nagrodę";
 
     document.getElementById("CartContent").innerHTML += Message;
-    ShowAcount();
+    ShowAccount();
     ShowPrizes(); // żeby zaktualizować dostępność nagród
 }
